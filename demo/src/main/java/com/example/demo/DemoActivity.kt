@@ -76,7 +76,7 @@ class DemoActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
 
-        //unregister first before registering again.
+        //unregister any previously registered event listener first before registering.
         if (EventBus.getDefault().isRegistered(this)) {
             EventBus.getDefault().unregister(this)
         }
