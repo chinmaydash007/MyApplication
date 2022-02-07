@@ -1,10 +1,13 @@
 package com.example.demo
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.getvisitapp.google_fit.IntiateSdk
+import com.getvisitapp.google_fit.event.ClosePWAEvent
 import com.getvisitapp.google_fit.event.MessageEvent
 import com.getvisitapp.google_fit.event.VisitEventType
 import org.greenrobot.eventbus.EventBus
@@ -66,6 +69,14 @@ class DemoActivity : AppCompatActivity() {
                         event.eventType as VisitEventType.StartVideoCall
 
 
+                }
+                is VisitEventType.HRA_Completed -> {
+                    Handler(Looper.getMainLooper()).postDelayed({
+                        //passing event to Visit PWA to close itself
+                        EventBus.getDefault().post(ClosePWAEvent())
+
+
+                    }, 200)
                 }
             }
 
