@@ -20,11 +20,10 @@ class DemoActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_demo)
 
 
         findViewById<Button>(R.id.button).setOnClickListener {
-            //        val prodMagicLink = "https://vsyt.me/m/1XFjA45h"
             val magicLink = "https://tata-aig.getvisitapp.xyz"
             val baseUrlOfMagicLink = "https://tata-aig.getvisitapp.xyz/"
 //
