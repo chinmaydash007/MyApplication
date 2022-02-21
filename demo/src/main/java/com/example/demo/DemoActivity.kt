@@ -33,6 +33,7 @@ class DemoActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
     val default_client_id =
         "1050989325945-11eh51j1d0ocl945gmk583ai35ospog3.apps.googleusercontent.com"
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_demo)
@@ -48,7 +49,7 @@ class DemoActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
         checker = GoogleFitAccessChecker(this)
 
         val syncStepHelper = VisitStepSyncHelper(context = this, default_client_id)
-        syncStepHelper.syncSteps()
+        syncStepHelper.syncSteps(tataAIG_base_url, tataAIG_auth_token)
 
     }
 
