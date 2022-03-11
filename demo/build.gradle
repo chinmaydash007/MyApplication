@@ -46,7 +46,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
 
-    implementation 'com.github.VisitApp:AndroidSDK:1.27'
+    implementation 'com.github.VisitApp:AndroidSDK:1.34'
 
     implementation "com.google.android.gms:play-services-gcm:17.0.0"
     implementation "com.google.android.gms:play-services-fitness:20.0.0"
@@ -84,5 +84,7 @@ dependencies {
     }
 
     implementation("org.greenrobot:eventbus:3.3.1")
+    implementation "androidx.browser:browser:1.4.0"
+
 
 }
