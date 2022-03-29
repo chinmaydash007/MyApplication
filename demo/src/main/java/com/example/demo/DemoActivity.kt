@@ -7,9 +7,11 @@ import android.util.Log
 import android.widget.Button
 import android.widget.CompoundButton
 import android.widget.Switch
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.getvisitapp.google_fit.IntiateSdk
 import com.getvisitapp.google_fit.data.VisitStepSyncHelper
+import com.getvisitapp.google_fit.data.VisitStepSyncHelper.Companion.openGoogleFit
 import com.getvisitapp.google_fit.event.ClosePWAEvent
 import com.getvisitapp.google_fit.event.MessageEvent
 import com.getvisitapp.google_fit.event.VisitEventType
@@ -20,7 +22,7 @@ import org.greenrobot.eventbus.ThreadMode
 
 //9978900304
 class DemoActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener {
-    var TAG = this.javaClass.simpleName
+    var TAG = "DemoActivity"
 
 
     lateinit var checker: GoogleFitAccessChecker
@@ -51,6 +53,16 @@ class DemoActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
         val syncStepHelper = VisitStepSyncHelper(context = this, default_client_id)
         syncStepHelper.syncSteps(tataAIG_base_url, tataAIG_auth_token)
 
+        //Open Google Fit if installed else return false.
+        findViewById<Button>(R.id.openGoogleFitApp).setOnClickListener {
+            val result=openGoogleFit()
+            if(result){
+                //do nothing
+            }else{
+                Toast.makeText(this,"Google Fit app is not installed.", Toast.LENGTH_SHORT).show()
+            }
+        }
+
     }
 
 
@@ -69,7 +81,7 @@ class DemoActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
 
                 }
                 VisitEventType.FitnessPermissionGranted -> {
-
+                    Log.d(TAG, "FitnessPermissionGranted called")
 
                 }
                 is VisitEventType.RequestHealthDataForDetailedGraph -> {
