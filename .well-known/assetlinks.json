@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.getvisitapp.android",
+      "sha256_cert_fingerprints": [
+        "FA:E8:21:DD:2F:7F:BE:7D:CC:75:39:A9:00:C1:6C:84:E2:C4:EC:4A:E8:32:0C:42:F6:65:3E:33:E4:5E:F5:E3"
+      ]
+    }
+  }
+]
